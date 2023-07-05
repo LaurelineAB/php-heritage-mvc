@@ -12,7 +12,7 @@ if(isset($_GET['route']))
     }
     else if ($_GET['route'] === "user-edit")
     {
-        $userController->edit();
+        $userController->edit($_POST);
     }
 }
 else

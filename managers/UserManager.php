@@ -59,7 +59,8 @@ class UserManager extends AbstractManager {
         [
             'email' => $user->getEmail(),
             'username' => $user->getUsername(),
-            'password' => $user->getPassword()
+            'password' => $user->getPassword(),
+            'id' => $user->getId()
         ];
         $query->execute($parameters);
     }
