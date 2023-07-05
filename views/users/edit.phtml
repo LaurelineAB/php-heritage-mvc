@@ -1,0 +1,23 @@
+<h1>Modifier un utilisateur</h1>
+<form method="POST" action="../../index.php">
+    <fieldset>
+        <label for="confirmPassword">ID</label>
+        <input type="number" name="id" id="id" required/>
+    </fieldset>
+    <fieldset>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required/>
+    </fieldset>
+    <fieldset>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required/>
+    </fieldset>
+    <fieldset>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required/>
+    </fieldset>
+    <fieldset>
+        <input type="submit" name="submit-edit" id="submit-edit" value="Editer"/>
+    </fieldset>
+        <input type="hidden" name="formName" id="formName" value="editForm"/>
+</form>

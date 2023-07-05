@@ -1,5 +1,7 @@
 <?php
 
+require "AbstractManager.php";
+
 class UserManager extends AbstractManager {
     
     public function getAllUsers() : array
@@ -14,6 +16,17 @@ class UserManager extends AbstractManager {
     {
         $query = $db->prepare("SELECT * FROM users WHERE users.id = :id");
         $parameters = ['id' => $id];
+        $query->execute($parameters);
+        $fetch = $query->fetch(PDO::FETCH_ASSOC);
+        $user = new User ($fetch['email'], $fetch['username'], $fetch['password']);
+        $user['id'] = setId($id);
+        return $user;
+    }
+    
+    public function getUserByEmail(string $email) : User
+    {
+        $query = $db->prepare("SELECT * FROM users WHERE users.email = :email");
+        $parameters = ['email' => $email];
         $query->execute($parameters);
         $fetch = $query->fetch(PDO::FETCH_ASSOC);
         $user = new User ($fetch['email'], $fetch['username'], $fetch['password']);
