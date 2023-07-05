@@ -1,5 +1,5 @@
 <h1>Création de compte</h1>
-<form method="POST" action="../../index.php" id="registerForm">
+<form method="POST" action="index.php?route=user-create" id="registerForm">
     <fieldset>
         <label for="email">Email</label>
         <input type="email" name="email" id="email" required/>
@@ -19,5 +19,5 @@
     <fieldset>
         <input type="submit" name="submit-create" id="submit-create" value="Créer un compte"/>
     </fieldset>
-        <input type="hidden" name="formName" id="formName" value="createForm"/>
+        <input type="hidden" name="formName" id="formName" value="user-create"/>
 </form>

@@ -1,3 +1,4 @@
+<h1>Liste des utilisateurs</h1>
 <table>
     <thead>
         <tr>
@@ -9,14 +10,21 @@
     </thead>
     <tbody>
         <?php
-            foreach($users as $user)
+            if (isset($users))
             {
-                echo 
-                "<tr>
-                    <td>".$user['id']."</td>
-                    <td>".$user['email']."</td>
-                    <td>".$user['username']."</td>
-                </tr>";
+                foreach($users as $user)
+                {
+                    echo 
+                    "<tr>
+                        <td>".$user['id']."</td>
+                        <td>".$user['email']."</td>
+                        <td>".$user['username']."</td>
+                    </tr>";
+                }
+            }
+            else
+            {
+                echo "<tr><td colspan=4>Aucun utilisateur enregistré.</td></tr>";
             }
         ?>
     </tbody>

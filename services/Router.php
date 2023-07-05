@@ -1,20 +1,23 @@
 <?php
 
-if ($_GET['route'] === "users")
-{
-    UserController->index();
-}
-else if ($_GET['route'] === "user-create")
-{
-    UserController->create();
-}
-else if ($_GET['route'] === "user-edit")
-{
-    UserController->edit();
+if(isset($_GET['route']))
+    {
+    if ($_GET['route'] === "users")
+    {
+        $userController->index();
+    }
+    else if ($_GET['route'] === "user-create")
+    {
+        $userController->create($_POST);
+    }
+    else if ($_GET['route'] === "user-edit")
+    {
+        $userController->edit();
+    }
 }
 else
 {
-    UserController->index();
+    $userController->index();
 }
 
 ?>

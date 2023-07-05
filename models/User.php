@@ -3,7 +3,7 @@
 class User {
     
     //ATTRIBUTES
-    private int $id;
+    private ?int $id;
     private string $email;
     private string $username;
     private string $password;
