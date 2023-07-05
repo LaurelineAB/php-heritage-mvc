@@ -22,17 +22,29 @@ class UserController extends AbstractController {
     {
         if(isset($_POST['submit-create']))
         {
-            $user = new User($post['email'], $post['username'], $post['password']);
-            $this->manager->insertUser($user);
+            if ($post['password'] === $post['confirmPassword'])
+            {
+                $password = password_hash($post['password'], PASSWORD_DEFAULT);
+                $user = new User($post['email'], $post['username'], $password);
+                $this->manager->insertUser($user);
+                $this->render("create", []);
+            }
+            else
+            {
+                $this->render("create", []);
+                echo "Vous devez taper deux fois le même mot de passe.";
+            }
         }
-        $this->render("create", []);
+        else {
+        $this->render("create", []);}
     }
     
     public function edit(array $post)
     {
         if(isset($_POST['submit-edit']))
         {
-            $user = new User($post['email'], $post['username'], $post['password']);
+            $password = password_hash($post['password'], PASSWORD_DEFAULT);
+            $user = new User($post['email'], $post['username'], $password);
             $user->setId($post['id']);
             $this->manager->editUser($user);
         }
